@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muskaan Batham | Portfolio</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#050505;
+    color:#f5f5f5;
+    line-height:1.6;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(5,5,5,0.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+}
+
+nav h2{
+    color:#ff3131;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+nav a{
+    color:#ccc;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff3131;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 10%;
+    background:
+        radial-gradient(circle at 80% 30%,rgba(255,0,0,0.13),transparent 30%),
+        radial-gradient(circle at 20% 80%,rgba(255,0,0,0.08),transparent 30%);
+}
+
+.hero-small{
+    color:#ff3131;
+    font-size:20px;
+    margin-bottom:5px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,80px);
+    margin:5px 0;
+    color:white;
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#ff3131;
+}
+
+.typing{
+    font-size:25px;
+    color:#ddd;
+    min-height:40px;
+    margin-top:10px;
+}
+
+#typing-text{
+    color:#ff3131;
+    font-weight:600;
+}
+
+.hero-description{
+    max-width:650px;
+    color:#999;
+    margin-top:15px;
+    font-size:17px;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.buttons a{
+    display:inline-block;
+    padding:11px 24px;
+    margin-right:12px;
+    border-radius:5px;
+    text-decoration:none;
+    color:white;
+    border:1px solid #ff3131;
+    transition:0.3s;
+}
+
+.buttons a:first-child{
+    background:#ff3131;
+}
+
+.buttons a:hover{
+    background:#b80000;
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(255,0,0,0.25);
+}
+
+section{
+    padding:90px 10%;
+}
+
+.section-title{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.section-line{
+    width:55px;
+    height:4px;
+    background:#ff3131;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.about-box{
+    max-width:900px;
+    padding:30px;
+    border-radius:10px;
+    background:#0d0d0d;
+    border:1px solid #222;
+    color:#aaa;
+}
+
+.about-box p{
+    margin-bottom:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    padding:10px 18px;
+    border-radius:5px;
+    background:#111;
+    border:1px solid #292929;
+    color:#ddd;
+    transition:0.3s;
+}
+
+.skill:hover{
+    transform:translateY(-4px);
+    border-color:#ff3131;
+    color:#ff3131;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.project{
+    padding:32px;
+    border-radius:10px;
+    background:#0d0d0d;
+    border:1px solid #222;
+    transition:0.35s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    border-color:#ff3131;
+    box-shadow:0 15px 40px rgba(255,0,0,0.12);
+}
+
+.project h3{
+    font-size:27px;
+    color:#ff3131;
+    margin-bottom:15px;
+}
+
+.project p{
+    color:#aaa;
+    margin-bottom:15px;
+}
+
+.project ul{
+    padding-left:20px;
+    color:#999;
+}
+
+.project li{
+    margin-bottom:9px;
+}
+
+.project-tag{
+    display:inline-block;
+    margin-top:20px;
+    padding:5px 12px;
+    border-radius:4px;
+    font-size:13px;
+    background:#1a0808;
+    color:#ff5555;
+    border:1px solid #3a1111;
+}
+
+.interests{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.interest{
+    text-align:center;
+    padding:25px 15px;
+    border-radius:10px;
+    background:#0d0d0d;
+    border:1px solid #222;
+    transition:0.3s;
+}
+
+.interest:hover{
+    transform:translateY(-5px);
+    border-color:#ff3131;
+}
+
+.interest span{
+    display:block;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.contact{
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(255,0,0,0.12),#050505 60%);
+}
+
+.contact p{
+    color:#999;
+    margin-bottom:25px;
+}
+
+.contact-info{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.contact-info a{
+    padding:10px 18px;
+    border:1px solid #292929;
+    border-radius:5px;
+    color:#ccc;
+    text-decoration:none;
+    background:#0d0d0d;
+    transition:0.3s;
+}
+
+.contact-info a:hover{
+    color:#ff3131;
+    border-color:#ff3131;
+}
+
+.social-links a{
+    color:#ccc;
+    text-decoration:none;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+.social-links a:hover{
+    color:#ff3131;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+    border-top:1px solid #1c1c1c;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        gap:15px;
+        font-size:14px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:85vh;
+        padding:60px 7%;
+        text-align:left;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .typing{
+        font-size:21px;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .interests{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    section{
+        padding:70px 7%;
+    }
+
+    .buttons{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .buttons a{
+        margin-right:0;
+    }
+}
+
+@media(max-width:450px){
+    .interests{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <h2>My Portfolio</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div class="hero-small">Hello, I'm</div>
+    <h1>Muskaan <span>Batham</span></h1>
+    <div class="typing">I am <span id="typing-text"></span></div>
+    <p class="hero-description">
+        A second-year Computer Science Engineering student at PSIT,
+        passionate about technology, problem solving and building
+        practical solutions for real-world problems.
+    </p>
+    <div class="buttons">
+        <a href="https://github.com/MuskaanBatham12" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/muskaan-batham-899619317/" target="_blank">LinkedIn</a>
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+    <div class="about-box">
+        <p>
+            I'm Muskaan Batham, a second-year Computer Science Engineering
+            student at PSIT, Kanpur. I enjoy learning by building projects,
+            participating in hackathons and solving programming problems.
+        </p>
+        <p>
+            My current areas of interest include AI/ML, web development,
+            DSA and full-stack development. I like experimenting with
+            new technologies and turning ideas into working applications.
+        </p>
+        <p>
+            Apart from technology, I also enjoy photography and exploring
+            creative ways to present ideas.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+    <div class="skills">
+        <div class="skill">C++</div>
+        <div class="skill">DSA</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Java</div>
+        <div class="skill">Git</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">AI / ML</div>
+        <div class="skill">Full Stack</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+
+    <div class="projects">
+        <div class="project">
+            <h3>Vaidya AI</h3>
+            <p>
+                Vaidya AI is a healthcare technology platform designed
+                to bring multiple healthcare services together in one
+                system. The project focuses on improving access to
+                emergency assistance, hospital resources and
+                AI-assisted physiotherapy.
+            </p>
+            <ul>
+                <li><strong>Hospital Resource Allocation:</strong> Helps identify and rank hospitals based on factors such as available resources, patient severity, distance and hospital load.</li>
+                <li><strong>SOS Assistance:</strong> Provides an emergency workflow for patients requiring urgent healthcare support.</li>
+                <li><strong>AI Physiotherapy:</strong> Uses pose analysis to assist users with exercise and posture monitoring and provides feedback during physiotherapy exercises.</li>
+                <li><strong>Health Monitoring:</strong> Designed to integrate hardware such as ESP32 sensors for collecting health-related measurements.</li>
+                <li><strong>Healthcare Services:</strong> The platform brings together features such as doctor consultation, hospital information, emergency support and patient-related data.</li>
+            </ul>
+            <span class="project-tag">AI • Healthcare • Web • Hardware</span>
+        </div>
+
+        <div class="project">
+            <h3>Kisan Credit</h3>
+            <p>
+                Kisan Credit is a technology-based project focused
+                on making credit-related information and services
+                easier for farmers to understand and access.
+                The idea is to simplify the interaction between
+                farmers and financial resources through a
+                user-friendly digital platform.
+            </p>
+            <ul>
+                <li><strong>Simple Interface:</strong> Designed with accessibility in mind so that important information can be understood without unnecessary complexity.</li>
+                <li><strong>Credit Information:</strong> Helps users understand available credit-related information and the requirements associated with it.</li>
+                <li><strong>Farmer-focused Approach:</strong> The project focuses on presenting information in a way that is more useful for farmers rather than using a complicated financial interface.</li>
+                <li><strong>Digital Access:</strong> Aims to reduce the difficulty of finding and understanding relevant financial information through a centralized platform.</li>
+                <li><strong>Real-world Problem Solving:</strong> The project was developed with the goal of applying technology to a practical problem faced by users in the agricultural sector.</li>
+            </ul>
+            <span class="project-tag">Web • Agriculture • FinTech</span>
+        </div>
+    </div>
+</section>
+
+<section id="interests">
+    <h2 class="section-title">What I Enjoy</h2>
+    <div class="section-line"></div>
+    <div class="interests">
+        <div class="interest">
+            <span>🤖</span>
+            AI / ML
+        </div>
+        <div class="interest">
+            <span>💻</span>
+            Web Development
+        </div>
+        <div class="interest">
+            <span>📸</span>
+            Photography
+        </div>
+        <div class="interest">
+            <span>🧩</span>
+            Problem Solving
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2 class="section-title">Let's Connect</h2>
+    <p>I'm always open to learning, collaborating and building something useful.</p>
+
+    <div class="contact-info">
+        <a href="mailto:bathammuskaan18@gmail.com">✉ bathammuskaan18@gmail.com</a>
+        <a href="tel:+918400079122">☎ +91 8400079122</a>
+    </div>
+
+    <div class="social-links">
+        <a href="https://github.com/MuskaanBatham12" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/muskaan-batham-899619317/" target="_blank">LinkedIn</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Muskaan Batham
+</footer>
+
+<script>
+const texts=[
+    "an AI/ML Enthusiast",
+    "a Web Developer",
+    "a Problem Solver",
+    "a Photographer",
+    "a CSE Student"
+];
+
+let textIndex=0;
+let charIndex=0;
+let deleting=false;
+const typingText=document.getElementById("typing-text");
+
+function typeEffect(){
+    const currentText=texts[textIndex];
+
+    if(!deleting){
+        typingText.textContent=currentText.substring(0,charIndex+1);
+        charIndex++;
+
+        if(charIndex===currentText.length){
+            deleting=true;
+            setTimeout(typeEffect,1300);
+            return;
+        }
+    }else{
+        typingText.textContent=currentText.substring(0,charIndex-1);
+        charIndex--;
+
+        if(charIndex===0){
+            deleting=false;
+            textIndex++;
+
+            if(textIndex===texts.length){
+                textIndex=0;
+            }
+        }
+    }
+
+    setTimeout(typeEffect,deleting?50:90);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
